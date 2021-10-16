@@ -97,6 +97,7 @@ p {
   color: var(--color-white);
   padding: 16px;
   transition: all var(--animation-duration) ease-in-out;
+  z-index: 1;
 }
 
 #navbar.navbar--dark {
@@ -114,8 +115,8 @@ p {
 }
 
 .navbar__menu__item {
-  padding: 8px 12px;
-  margin: 0 4px;
+  padding: 2px 30px;
+  margin: 0 8px;
   cursor: pointer;
   border-radius: var(--size-border-radiue);
 }
@@ -440,6 +441,7 @@ p {
 
 #contact {
   background-color: var(--color-pink);
+  padding: 5px;
 }
 
 .contact__title,
