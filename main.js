@@ -13,22 +13,18 @@ document.addEventListener('scroll', () => {
 
 
 // 네브바 메뉴 클릭시 이동
-const navbarMenu = document.querySelector('.navbar__menu');
+const navbarMenu = document.querySelector(".navbar__menu");
 
-navbarMenu.addEventListener('click', (event) => {
-
-const target = event.target;
+navbarMenu.addEventListener("click", (event) => {
+  const target = event.target;
 
   const link = target.dataset.link;
 
   if (link == null) {
-
     return;
-
-  } 
+  }
 
   scrollIntoView(link);
-
 });
 
 // 버튼 클릭시 이동 -콘텍트 미
@@ -40,7 +36,17 @@ homebtn.addEventListener('click', () => {
 
 });
 
+// 스크롤 내릴시 화면 투명해지는거
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});
+
+
+
 function scrollIntoView(selector) {
-    const scrollTo = document.querySelector(selector);
-    scrollTo.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: "smooth" });
 }
+
