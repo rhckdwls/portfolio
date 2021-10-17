@@ -23,9 +23,16 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return;
   }
-
+  navbarMenu.classList.remove('open');
   scrollIntoView(link);
 });
+
+// 넷바 버튼 클릭시 메뉴 나오게 폰화면일시
+const navbartogglebtn = document.querySelector('.navbar__toggle-btn')
+navbartogglebtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
+});
+
 
 // 버튼 클릭시 이동 -콘텍트 미
 const homebtn = document.querySelector('.home__contact');
@@ -35,6 +42,7 @@ homebtn.addEventListener('click', () => {
     scrollIntoView('#contact');
 
 });
+
 
 // 스크롤 내릴시 화면 투명해지는거
 const home = document.querySelector('.home__container');
@@ -70,6 +78,8 @@ workbtncontainer.addEventListener('click', (e) => {
   if (filter == null) {
     return;
   }
+
+
   projectcontainer.classList.add('anim-out');
   setTimeout(() => {
     projects.forEach((project) => {
