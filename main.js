@@ -43,10 +43,28 @@ document.addEventListener('scroll', () => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
+// 화살표 버튼 스크롤 내릴시 보이게
+const arrwup = document.querySelector('.arrow-up');
+document.addEventListener('scroll', ()=> {
+  if (window.scrollY > homeHeight /2) {
+    arrwup.classList.add('visible');
+  } else {
+    arrwup.classList.remove('visible');
+  }
+});
+
+// 화살표 버튼 누르면 홈으로
+const arrowup = document.querySelector('.arrow-up');
+
+arrowup.addEventListener('click', () => {
+
+    scrollIntoView('#Home');
+});
+
+
 
 
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
-
