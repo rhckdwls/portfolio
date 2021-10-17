@@ -61,6 +61,34 @@ arrowup.addEventListener('click', () => {
     scrollIntoView('#Home');
 });
 
+// 카테고리 분류 필터링
+const workbtncontainer = document.querySelector('.work__categories');
+const projectcontainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+workbtncontainer.addEventListener('click', (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if (filter == null) {
+    return;
+  }
+  projectcontainer.classList.add('anim-out');
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if (filter === '*' || filter === project.dataset.type) {
+        project.classList.remove('invisible');
+      } else {
+        project.classList.add('invisible');
+      }
+    });
+    projectcontainer.classList.remove('anim-out');
+  }, 300);
+});
+
+
+
+
+
+
+
 
 
 
