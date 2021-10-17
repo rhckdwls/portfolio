@@ -78,6 +78,12 @@ workbtncontainer.addEventListener('click', (e) => {
   if (filter == null) {
     return;
   }
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector('.category__btn.selected');
+  if (active != null) {
+    active.classList.remove('selected');
+  }
+  e.target.classList.add('selected');
 
 
   projectcontainer.classList.add('anim-out');
@@ -92,11 +98,6 @@ workbtncontainer.addEventListener('click', (e) => {
     projectcontainer.classList.remove('anim-out');
   }, 300);
 });
-
-
-
-
-
 
 
 
